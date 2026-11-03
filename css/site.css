@@ -146,3 +146,25 @@ main { display: block; }
   .lb-prev, .lb-next { font-size: 34px; }
   .about, .contact { grid-template-columns: 1fr; gap: 32px; }
 }
+
+/* home: intestazione grande con il nome */
+.site-header--home {
+  flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding: 36px var(--gutter) 0; gap: 18px; border-bottom: 0;
+}
+.brand-big {
+  font-family: var(--serif); font-size: clamp(54px, 9vw, 116px); line-height: 1;
+  letter-spacing: .01em; text-decoration: none; text-align: center;
+}
+.site-header--home .site-nav {
+  justify-content: center; width: 100%; max-width: var(--max);
+  border-top: 1px solid var(--text); border-bottom: 1px solid var(--text);
+  padding: 14px 0; margin: 0 auto;
+}
+/* home: card gallerie più grandi, 3 per riga (le ultime due centrate) */
+@media (min-width: 720px) {
+  .genre-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+  .genre-grid .genre-card { flex: 0 0 calc((100% - 48px) / 3); }
+  .genre-card img { aspect-ratio: 4 / 5; }
+  .genre-name { font-size: 15px; }
+}
