@@ -6,8 +6,8 @@
   --muted: #6b6b6b;
   --taupe: #6e675e;
   --taupe-text: #f5f3ef;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+  --serif: 'Bodoni Moda', Georgia, serif;
+  --sans: 'EB Garamond', 'Bodoni Moda', Georgia, serif;
   --gutter: clamp(24px, 4vw, 96px);
   --max: 1920px;
 }
