@@ -8,8 +8,8 @@
   --taupe-text: #f5f3ef;
   --serif: 'Italiana', 'Times New Roman', serif;
   --sans: 'Lato', Arial, sans-serif;
-  --gutter: 16px;
-  --max: 1200px;
+  --gutter: clamp(16px, 3vw, 48px);
+  --max: 1440px;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -32,10 +32,13 @@ p { margin: 0 0 1em; }
 /* header */
 .site-header {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-  gap: 12px 24px; padding: 20px var(--gutter); max-width: var(--max); margin: 0 auto;
-  border-bottom: 1px solid var(--text);
+  gap: 12px 24px; padding: 20px var(--gutter); border-bottom: 1px solid var(--text);
 }
-.brand { font-family: var(--serif); font-size: 30px; text-decoration: none; letter-spacing: .5px; }
+.header-left { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 40px; }
+.header-social { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.header-social a { font-size: 13px; text-transform: uppercase; letter-spacing: .14em; text-decoration: none; padding: 4px 0; border-bottom: 1px solid transparent; }
+.header-social a:hover { border-bottom-color: var(--text); }
+.brand { font-family: var(--serif); font-size: 30px; white-space: nowrap; text-decoration: none; letter-spacing: .5px; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
 .site-nav a {
   font-size: 13px; text-transform: uppercase; letter-spacing: .14em; text-decoration: none;
@@ -173,7 +176,7 @@ main { display: block; }
 .genre-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 .genre-nav .chip { text-decoration: none; display: inline-block; }
 .genre-nav .chip.is-active { background: var(--text); color: #fff; }
-.stack { max-width: 960px; margin: 0 auto; padding: 48px var(--gutter) 0; }
+.stack { max-width: 1200px; margin: 0 auto; padding: 48px var(--gutter) 0; }
 .stack-head { margin-bottom: 48px; }
 .stack-head h2 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 12px; }
 .stack-head p { color: var(--muted); font-size: 18px; margin: 0; }
@@ -207,4 +210,10 @@ main { display: block; }
   .home-grid { grid-template-columns: 1fr; gap: 48px; }
   .home-grid .card:last-child:nth-child(odd) img { aspect-ratio: 4 / 3; }
   .home-grid figcaption { font-size: 24px; }
+}
+
+/* header: nome e menu a sinistra, social a destra */
+@media (max-width: 719px) {
+  .header-left { gap: 10px 22px; }
+  .header-social { width: 100%; justify-content: flex-start; }
 }
