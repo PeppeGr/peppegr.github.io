@@ -168,3 +168,25 @@ main { display: block; }
   .genre-card img { aspect-ratio: 4 / 5; }
   .genre-name { font-size: 15px; }
 }
+
+/* gallerie: selezione impilata per genere */
+.genre-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.genre-nav .chip { text-decoration: none; display: inline-block; }
+.genre-nav .chip.is-active { background: var(--text); color: #fff; }
+.stack { max-width: 960px; margin: 0 auto; padding: 48px var(--gutter) 0; }
+.stack-head { margin-bottom: 48px; }
+.stack-head h2 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 12px; }
+.stack-head p { color: var(--muted); font-size: 18px; margin: 0; }
+.stack-photos figure { margin: 0 0 64px; }
+.stack-photos img { width: 100%; height: auto; background: var(--grey); }
+.stack-foot {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;
+  padding: 28px 0 72px; border-top: 1px solid var(--text);
+}
+.stack-pn { display: flex; flex-wrap: wrap; gap: 24px 40px; }
+.stack-pn a { font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); text-decoration: none; }
+.stack-pn a:hover { text-decoration: underline; text-underline-offset: 6px; }
+.btn-link {
+  background: none; border: 0; padding: 0; font: inherit; font-size: 14px; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 4px; color: var(--text);
+}
