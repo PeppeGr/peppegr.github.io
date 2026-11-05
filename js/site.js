@@ -1,5 +1,6 @@
 (function () {
   var GENRES = ['paesaggio', 'paesaggio-urbano', 'etna', 'street', 'persone'];
+  var LABELS = { 'paesaggio': 'Paesaggio', 'paesaggio-urbano': 'Paesaggio urbano', 'etna': 'Etna', 'street': 'Street', 'persone': 'Persone' };
   var stackView = document.getElementById('stack-view');
   var gridView = document.getElementById('grid-view');
   if (!stackView || !gridView) return;
@@ -7,16 +8,12 @@
   var stacks = Array.prototype.slice.call(document.querySelectorAll('.stack'));
   var genreLinks = Array.prototype.slice.call(document.querySelectorAll('[data-genre-link]'));
   var gallery = document.getElementById('gallery');
+  var gridTitle = document.getElementById('grid-title');
   var tiles = Array.prototype.slice.call(gallery.querySelectorAll('.tile'));
-  var gridFilters = document.querySelectorAll('[data-filter]');
-  var sizeButtons = document.querySelectorAll('[data-size]:not(.gallery)');
   var visibleLinks = [];
   var current = 'paesaggio';
 
-  function storeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
-  function storeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
-
-  // --- Selezioni per genere (stack) ---
+  // --- Selezione per genere (impilata) ---
   function showStack(g) {
     if (GENRES.indexOf(g) === -1) g = 'paesaggio';
     current = g;
@@ -28,21 +25,15 @@
     gridView.hidden = true;
   }
 
-  // --- Griglia completa ---
-  function visibleTiles() { return tiles.filter(function (t) { return !t.hidden; }); }
-  function applyGridFilter(name) {
-    tiles.forEach(function (t) {
-      t.hidden = !(name === 'tutti' || t.getAttribute('data-genre') === name);
-    });
-    gridFilters.forEach(function (b) {
-      b.classList.toggle('is-active', b.getAttribute('data-filter') === name);
-    });
-    visibleLinks = visibleTiles().map(function (t) { return t.querySelector('a'); });
-  }
+  // --- Tutte le foto di un genere (griglia) ---
   function showGrid(g) {
+    if (GENRES.indexOf(g) === -1) g = current;
+    current = g;
+    tiles.forEach(function (t) { t.hidden = t.getAttribute('data-genre') !== g; });
+    visibleLinks = tiles.filter(function (t) { return !t.hidden; }).map(function (t) { return t.querySelector('a'); });
+    gridTitle.textContent = 'Tutte le foto: ' + LABELS[g];
     stackView.hidden = true;
     gridView.hidden = false;
-    applyGridFilter(g || 'tutti');
     window.scrollTo(0, 0);
   }
 
@@ -52,32 +43,15 @@
   var back = document.querySelector('[data-back-stack]');
   if (back) back.addEventListener('click', function () { showStack(current); window.scrollTo(0, 0); });
 
-  gridFilters.forEach(function (b) {
-    b.addEventListener('click', function () { applyGridFilter(b.getAttribute('data-filter')); });
-  });
-
-  // --- Miniature S / M / L ---
-  function applySize(s) {
-    gallery.setAttribute('data-size', s);
-    sizeButtons.forEach(function (b) { b.classList.toggle('is-active', b.getAttribute('data-size') === s); });
-    storeSet('gallerySize', s);
-  }
-  sizeButtons.forEach(function (b) {
-    b.addEventListener('click', function () { applySize(b.getAttribute('data-size')); });
-  });
-  var saved = storeGet('gallerySize');
-  if (saved === 's' || saved === 'm' || saved === 'l') applySize(saved);
-
   // --- Hash: #genere mostra la selezione di quel genere ---
   function fromHash() {
     var h = (location.hash || '').replace('#', '');
     showStack(GENRES.indexOf(h) !== -1 ? h : 'paesaggio');
   }
   window.addEventListener('hashchange', fromHash);
-  applyGridFilter('tutti');
   fromHash();
 
-  // --- Lightbox (solo nella griglia completa) ---
+  // --- Lightbox (griglia) ---
   var lb = document.getElementById('lb');
   var img = document.getElementById('lb-img');
   var cap = document.getElementById('lb-cap');
