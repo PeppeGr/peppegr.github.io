@@ -8,7 +8,7 @@
   --taupe-text: #f5f3ef;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Cormorant Garamond', Georgia, serif;
-  --gutter: clamp(16px, 1.2vw, 28px);
+  --gutter: clamp(24px, 4vw, 96px);
   --max: 1920px;
 }
 * { box-sizing: border-box; }
@@ -33,7 +33,7 @@ p { margin: 0 0 1em; }
 /* header */
 .site-header {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-  gap: 12px 24px; padding: 20px var(--gutter);
+  gap: 12px 24px; padding: 20px clamp(16px, 1.2vw, 28px);
 }
 .header-left { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 40px; }
 .header-social { display: flex; flex-wrap: wrap; gap: 6px 22px; }
