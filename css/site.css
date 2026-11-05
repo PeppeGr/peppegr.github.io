@@ -217,3 +217,8 @@ main { display: block; }
   .header-left { gap: 10px 22px; }
   .header-social { width: 100%; justify-content: flex-start; }
 }
+
+/* icone social */
+.header-social a, .footer-social a { display: inline-flex; align-items: center; justify-content: center; line-height: 0; padding: 6px; }
+.header-social a svg { width: 20px; height: 20px; }
+.footer-social a svg { width: 20px; height: 20px; }
