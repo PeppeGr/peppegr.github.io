@@ -42,7 +42,7 @@ p { margin: 0 0 1em; }
 .brand { font-family: var(--serif); font-size: 36px; font-weight: 500; white-space: nowrap; text-decoration: none; letter-spacing: .5px; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
 .site-nav a {
-  font-size: 21px; text-decoration: none; padding: 4px 0;
+  font-size: 17px; text-decoration: none; padding: 4px 0;
 }
 .site-nav a:hover, .site-nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
 
@@ -176,6 +176,7 @@ main { display: block; }
 .genre-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 .genre-nav .chip { text-decoration: none; display: inline-block; }
 .genre-nav .chip.is-active { background: var(--text); color: #fff; }
+.gallery-head { max-width: 1400px; }
 .stack { max-width: 1400px; margin: 0 auto; padding: 48px var(--gutter) 0; }
 .stack-head { margin-bottom: 48px; }
 .stack-head h2 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 12px; }
