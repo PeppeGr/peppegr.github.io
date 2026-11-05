@@ -6,13 +6,21 @@
   var stacks = Array.prototype.slice.call(document.querySelectorAll('.stack'));
 
   // --- Selezione per genere: si sceglie il genere con l'hash (#genere) o con le frecce in fondo ---
+  var genreIndex = document.getElementById('genre-index');
+  // senza genere nell'indirizzo (menu «Gallerie») si mostrano le copertine dei cinque generi
   function showStack(g) {
-    if (GENRES.indexOf(g) === -1) g = 'paesaggio';
     stacks.forEach(function (s) { s.hidden = s.getAttribute('data-stack') !== g; });
+    stackView.hidden = false;
+    if (genreIndex) genreIndex.hidden = true;
+  }
+  function showIndex() {
+    stacks.forEach(function (s) { s.hidden = true; });
+    stackView.hidden = true;
+    if (genreIndex) genreIndex.hidden = false;
   }
   function fromHash() {
     var h = (location.hash || '').replace('#', '');
-    showStack(GENRES.indexOf(h) !== -1 ? h : 'paesaggio');
+    if (GENRES.indexOf(h) !== -1) showStack(h); else showIndex();
   }
   window.addEventListener('hashchange', fromHash);
   fromHash();
