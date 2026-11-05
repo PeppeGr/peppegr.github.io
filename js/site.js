@@ -43,7 +43,7 @@
 
   // Filtro iniziale dall'hash
   var initial = (location.hash || '').replace('#', '');
-  var valid = ['recenti', 'paesaggio', 'paesaggio-urbano', 'etna', 'street', 'persone'];
+  var valid = ['paesaggio', 'paesaggio-urbano', 'etna', 'street', 'persone'];
   var visibleLinks = [];
   applyFilter(valid.indexOf(initial) !== -1 ? initial : 'tutti');
   window.addEventListener('hashchange', function () {
