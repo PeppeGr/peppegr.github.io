@@ -1,49 +1,15 @@
 (function () {
   var GENRES = ['paesaggio', 'paesaggio-urbano', 'etna', 'street', 'persone'];
-  var LABELS = { 'paesaggio': 'Paesaggio', 'paesaggio-urbano': 'Paesaggio urbano', 'etna': 'Etna', 'street': 'Street', 'persone': 'Persone' };
   var stackView = document.getElementById('stack-view');
-  var gridView = document.getElementById('grid-view');
-  if (!stackView || !gridView) return;
+  if (!stackView) return;
 
   var stacks = Array.prototype.slice.call(document.querySelectorAll('.stack'));
-  var genreLinks = Array.prototype.slice.call(document.querySelectorAll('[data-genre-link]'));
-  var gallery = document.getElementById('gallery');
-  var gridTitle = document.getElementById('grid-title');
-  var tiles = Array.prototype.slice.call(gallery.querySelectorAll('.tile'));
-  var visibleLinks = [];
-  var current = 'paesaggio';
 
-  // --- Selezione per genere (impilata) ---
+  // --- Selezione per genere: si sceglie il genere con l'hash (#genere) o con le frecce in fondo ---
   function showStack(g) {
     if (GENRES.indexOf(g) === -1) g = 'paesaggio';
-    current = g;
     stacks.forEach(function (s) { s.hidden = s.getAttribute('data-stack') !== g; });
-    genreLinks.forEach(function (a) {
-      a.classList.toggle('is-active', a.getAttribute('data-genre-link') === g);
-    });
-    stackView.hidden = false;
-    gridView.hidden = true;
   }
-
-  // --- Tutte le foto di un genere (griglia) ---
-  function showGrid(g) {
-    if (GENRES.indexOf(g) === -1) g = current;
-    current = g;
-    tiles.forEach(function (t) { t.hidden = t.getAttribute('data-genre') !== g; });
-    visibleLinks = tiles.filter(function (t) { return !t.hidden; }).map(function (t) { return t.querySelector('a'); });
-    gridTitle.textContent = 'Tutte le foto: ' + LABELS[g];
-    stackView.hidden = true;
-    gridView.hidden = false;
-    window.scrollTo(0, 0);
-  }
-
-  document.querySelectorAll('[data-show-grid]').forEach(function (b) {
-    b.addEventListener('click', function () { showGrid(b.getAttribute('data-show-grid')); });
-  });
-  var back = document.querySelector('[data-back-stack]');
-  if (back) back.addEventListener('click', function () { showStack(current); window.scrollTo(0, 0); });
-
-  // --- Hash: #genere mostra la selezione di quel genere ---
   function fromHash() {
     var h = (location.hash || '').replace('#', '');
     showStack(GENRES.indexOf(h) !== -1 ? h : 'paesaggio');
@@ -51,16 +17,17 @@
   window.addEventListener('hashchange', fromHash);
   fromHash();
 
-  // --- Lightbox (griglia) ---
+  // --- Lightbox: la foto intera, con le altre del genere ---
   var lb = document.getElementById('lb');
   var img = document.getElementById('lb-img');
   var cap = document.getElementById('lb-cap');
+  var links = [];
   var idx = 0;
 
   function show(i) {
-    if (!visibleLinks.length) return;
-    idx = (i + visibleLinks.length) % visibleLinks.length;
-    var a = visibleLinks[idx];
+    if (!links.length) return;
+    idx = (i + links.length) % links.length;
+    var a = links[idx];
     img.src = a.getAttribute('href');
     img.alt = a.querySelector('img').getAttribute('alt') || '';
     cap.textContent = img.alt;
@@ -77,12 +44,12 @@
     document.body.style.overflow = '';
   }
 
-  gallery.addEventListener('click', function (e) {
+  stackView.addEventListener('click', function (e) {
     var a = e.target.closest('a.tile-link');
     if (!a) return;
     e.preventDefault();
-    var i = visibleLinks.indexOf(a);
-    open(i < 0 ? 0 : i);
+    links = Array.prototype.slice.call(a.closest('.stack').querySelectorAll('a.tile-link'));
+    open(Math.max(0, links.indexOf(a)));
   });
   lb.querySelector('.lb-close').addEventListener('click', close);
   lb.querySelector('.lb-prev').addEventListener('click', function () { show(idx - 1); });
