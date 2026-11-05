@@ -8,8 +8,8 @@
   --taupe-text: #f5f3ef;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Cormorant Garamond', Georgia, serif;
-  --gutter: clamp(16px, 3vw, 48px);
-  --max: 1440px;
+  --gutter: clamp(16px, 1.2vw, 28px);
+  --max: 1920px;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -176,7 +176,7 @@ main { display: block; }
 .genre-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 .genre-nav .chip { text-decoration: none; display: inline-block; }
 .genre-nav .chip.is-active { background: var(--text); color: #fff; }
-.stack { max-width: 1200px; margin: 0 auto; padding: 48px var(--gutter) 0; }
+.stack { max-width: 1400px; margin: 0 auto; padding: 48px var(--gutter) 0; }
 .stack-head { margin-bottom: 48px; }
 .stack-head h2 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 12px; }
 .stack-head p { color: var(--muted); font-size: 18px; margin: 0; }
@@ -196,7 +196,7 @@ main { display: block; }
 .grid-title { font-size: clamp(32px, 4vw, 48px); margin-top: 20px; }
 
 /* home: cinque gallerie come riquadri grandi */
-.home-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(32px, 5vw, 88px); row-gap: clamp(72px, 9vw, 140px); max-width: var(--max); margin: 56px auto 0; padding: 0 var(--gutter); }
+.home-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(32px, 4.5vw, 96px); row-gap: clamp(80px, 9vw, 160px); max-width: var(--max); margin: clamp(56px, 7vw, 130px) auto 0; padding: 0 var(--gutter); }
 .home-grid .card { text-decoration: none; display: block; }
 .home-grid figure { margin: 0; }
 .home-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--grey); transition: opacity .3s; }
