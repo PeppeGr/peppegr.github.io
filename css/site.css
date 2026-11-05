@@ -1,6 +1,6 @@
 /* Giuseppe Grasso – prototipo fase 3 */
 :root {
-  --bg: #ffffff;
+  --bg: #fbfaf7;
   --grey: #f4f4f2;
   --text: #161616;
   --muted: #6b6b6b;
@@ -89,14 +89,15 @@ main { display: block; }
 
 /* lightbox */
 .lb {
-  position: fixed; inset: 0; z-index: 50; background: rgba(12,12,12,.94);
-  display: flex; align-items: center; justify-content: center; padding: 56px 56px 40px;
+  position: fixed; inset: 0; z-index: 50; background: rgba(251,250,247,.9);
+  backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center; padding: 56px 72px 40px;
 }
 .lb figure { margin: 0; max-width: 100%; max-height: 100%; text-align: center; }
-.lb img { max-width: 100%; max-height: calc(100vh - 120px); margin: 0 auto; object-fit: contain; }
-.lb figcaption { color: #ddd; font-size: 14px; margin-top: 10px; min-height: 1.4em; }
+.lb img { max-width: 100%; max-height: calc(100vh - 120px); margin: 0 auto; object-fit: contain; box-shadow: none; }
+.lb figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; min-height: 1.4em; }
 .lb button {
-  position: absolute; background: transparent; border: 0; color: #fff; cursor: pointer;
+  position: absolute; background: transparent; border: 0; color: var(--text); cursor: pointer;
   font-size: 40px; line-height: 1; padding: 8px 14px; font-family: var(--sans);
 }
 .lb-close { top: 8px; right: 8px; font-size: 36px; }
