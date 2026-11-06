@@ -12,17 +12,29 @@
     stacks.forEach(function (s) { s.hidden = s.getAttribute('data-stack') !== g; });
     stackView.hidden = false;
     if (genreIndex) genreIndex.hidden = true;
+    document.body.classList.remove('is-index');
   }
   function showIndex() {
     stacks.forEach(function (s) { s.hidden = true; });
     stackView.hidden = true;
     if (genreIndex) genreIndex.hidden = false;
+    document.body.classList.add('is-index');
   }
+  // ingresso: al passaggio del mouse sul nome di un genere cambia la foto a tutto schermo
+  var heroImgs = Array.prototype.slice.call(document.querySelectorAll('.hero-img'));
+  function setHero(g) {
+    heroImgs.forEach(function (i) { i.classList.toggle('is-on', i.getAttribute('data-genre') === g); });
+  }
+  Array.prototype.slice.call(document.querySelectorAll('.hero-names a')).forEach(function (a) {
+    a.addEventListener('mouseenter', function () { setHero(a.getAttribute('data-genre')); });
+    a.addEventListener('focus', function () { setHero(a.getAttribute('data-genre')); });
+  });
   function fromHash() {
     var h = (location.hash || '').replace('#', '');
     if (GENRES.indexOf(h) !== -1) showStack(h); else showIndex();
   }
-  window.addEventListener('hashchange', fromHash);
+  // cambiando genere (frecce o menu) la pagina riparte dall'inizio, non dalla posizione di scroll precedente
+  window.addEventListener('hashchange', function () { fromHash(); window.scrollTo(0, 0); });
   fromHash();
 
   // --- Lightbox: la foto intera, con le altre del genere ---
