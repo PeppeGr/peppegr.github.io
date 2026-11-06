@@ -49,6 +49,8 @@ p { margin: 0 0 1em; }
 .header-social a { font-size: 13px; text-transform: uppercase; letter-spacing: .14em; text-decoration: none; padding: 4px 0; border-bottom: 1px solid transparent; }
 .header-social a:hover { border-bottom-color: var(--text); }
 .brand { font-family: var(--serif); font-size: 36px; font-weight: 500; white-space: nowrap; text-decoration: none; letter-spacing: .5px; }
+.brand-logo { display: block; width: auto; height: clamp(26px, 2.6vw, 40px); }
+body.is-index .brand-logo { filter: brightness(0) invert(1); }
 .site-nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
 .site-nav a {
   font-size: 17px; text-decoration: none; padding: 4px 0;
