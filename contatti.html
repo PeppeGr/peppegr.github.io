@@ -27,30 +27,29 @@
     </nav>
   </div>
   <nav class="header-social" aria-label="Social">
-    <a href="https://www.instagram.com/giuseppegrasso.me/" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a>
-    <a href="https://www.facebook.com/peppegrasso" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.4H7.6V14h2.7v8z"/></svg></a>
-    <a href="https://www.pinterest.it/giuseppegrasso/boards/" rel="noopener" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M11 7.5c-1.9 0-3 1.3-3 2.8 0 .8.3 1.4.9 1.7.1 0 .2 0 .2-.1l.1-.4c0-.1 0-.2-.1-.3-.2-.2-.3-.5-.3-.9 0-1.2.9-2.3 2.3-2.3 1.3 0 2 .8 2 1.8 0 1.4-.6 2.5-1.5 2.5-.5 0-.9-.4-.8-1 .2-.7.5-1.5.5-2 0-.5-.3-.9-.8-.9-.6 0-1.1.6-1.1 1.5 0 .5.2.9.2.9l-.7 3c-.2.9 0 2 0 2.1h.1c.1-.1.9-1.1 1.2-2.1l.5-1.9c.2.5.9.9 1.7.9 2.2 0 3.7-2 3.7-4.7 0-2-1.7-3.9-4.3-3.9z"/></svg></a>
-  </nav>
+    <a href="https://www.instagram.com/peppegrasso.it/" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a><a href="mailto:info@peppegrasso.it" aria-label="E-mail" title="E-mail"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 6.5 12 13l8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+    </nav>
 </header>
 
-<main>
-  <section class="section contact">
-    <div class="contact-intro">
-      <h1>Contatti</h1>
-      <p>Scrivimi per un'opinione, un suggerimento, una collaborazione fotografica o per chiedere informazioni sulle immagini.</p>
-      <p class="mail"><a href="mailto:info@peppegrasso.it">info@peppegrasso.it</a></p>
-      <p class="where">Sicilia</p>
-    </div>
-    <form class="contact-form" action="https://formspree.io/xnqgband" method="POST">
+<main class="contact-page">
+  <section class="cp-wrap">
+    <h1 class="cp-lead">Usa il modulo contatti a seguire per scrivermi una tua opinione, un suggerimento o anche più semplicemente per un saluto.<br>Sarò felice di risponderti.</h1>
+    <form class="cp-form" action="https://formspree.io/xnqgband" method="POST">
       <input type="hidden" name="_next" value="messaggio-inviato.html">
-      <label for="fname">Nome</label>
-      <input type="text" name="nome" id="fname" required>
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required>
-      <label for="message">Messaggio</label>
-      <textarea name="message" id="message" rows="6" required></textarea>
+      <div class="cf">
+        <label for="fname">Nome <span>(obbligatorio)</span></label>
+        <input type="text" name="nome" id="fname" required>
+      </div>
+      <div class="cf">
+        <label for="email">E-mail <span>(obbligatorio)</span></label>
+        <input type="email" name="email" id="email" required>
+      </div>
+      <div class="cf">
+        <label for="message">Messaggio <span>(obbligatorio)</span></label>
+        <textarea name="message" id="message" rows="6" required></textarea>
+      </div>
       <div class="g-recaptcha" data-sitekey="6LfUdQosAAAAAHyve6rgprSuOLJ9LR0JEUpJHA0f"></div>
-      <button type="submit" class="btn">Invia</button>
+      <button type="submit" class="cbtn">Invia</button>
     </form>
   </section>
 </main>
@@ -63,13 +62,12 @@
       <a href="contatti.html">Contatti</a>
     </nav>
     <p class="footer-social">
-      <a href="https://www.instagram.com/giuseppegrasso.me/" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a>
-      <a href="https://www.facebook.com/peppegrasso" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.4H7.6V14h2.7v8z"/></svg></a>
-      <a href="https://www.pinterest.it/giuseppegrasso/boards/" rel="noopener" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M11 7.5c-1.9 0-3 1.3-3 2.8 0 .8.3 1.4.9 1.7.1 0 .2 0 .2-.1l.1-.4c0-.1 0-.2-.1-.3-.2-.2-.3-.5-.3-.9 0-1.2.9-2.3 2.3-2.3 1.3 0 2 .8 2 1.8 0 1.4-.6 2.5-1.5 2.5-.5 0-.9-.4-.8-1 .2-.7.5-1.5.5-2 0-.5-.3-.9-.8-.9-.6 0-1.1.6-1.1 1.5 0 .5.2.9.2.9l-.7 3c-.2.9 0 2 0 2.1h.1c.1-.1.9-1.1 1.2-2.1l.5-1.9c.2.5.9.9 1.7.9 2.2 0 3.7-2 3.7-4.7 0-2-1.7-3.9-4.3-3.9z"/></svg></a>
-    </p>
+      <a href="https://www.instagram.com/peppegrasso.it/" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a><a href="mailto:info@peppegrasso.it" aria-label="E-mail" title="E-mail"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 6.5 12 13l8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </p>
     <p class="footer-copy">&copy; 2026 Giuseppe Grasso. Tutti i diritti riservati.</p>
   </div>
 </footer>
 
+<script src="js/protect.js"></script>
 </body>
 </html>

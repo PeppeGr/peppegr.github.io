@@ -268,3 +268,34 @@ body.is-index .site-footer { display: none; }
 .header-social a, .footer-social a { display: inline-flex; align-items: center; justify-content: center; line-height: 0; padding: 6px; }
 .header-social a svg { width: 20px; height: 20px; }
 .footer-social a svg { width: 20px; height: 20px; }
+
+/* pagina Contatti: stile essenziale, come nell'esempio */
+.contact-page { padding: 120px var(--gutter) 40px; }
+.cp-wrap { max-width: 640px; margin: 0 0 0 12vw; }
+.cp-lead { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3vw, 42px); line-height: 1.25; margin: 0 0 80px; }
+.cp-form { display: block; }
+.cf { margin-bottom: 36px; }
+.cf label { display: block; font-family: var(--sans); font-size: 17px; margin-bottom: 4px; }
+.cf label span { color: var(--muted); font-size: 15px; }
+.cf input, .cf textarea {
+  width: 100%; font: inherit; font-size: 17px; padding: 8px 0; border: 0; border-bottom: 1px solid var(--text);
+  background: transparent; border-radius: 0; resize: vertical; outline: none;
+}
+.cf input:focus, .cf textarea:focus { border-bottom-width: 2px; }
+.cbtn {
+  font-family: var(--sans); font-size: 17px; padding: 14px 40px; background: transparent; color: var(--text);
+  border: 1px solid var(--text); cursor: pointer; margin-top: 12px;
+}
+.cbtn:hover { background: var(--text); color: #fff; }
+.cp-info { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 120px; }
+.cp-info h2 { font-family: var(--serif); font-weight: 400; font-size: 34px; margin: 0 0 16px; }
+.cp-info p { font-family: var(--sans); font-size: 17px; margin: 0 0 6px; }
+.cp-info a { color: var(--text); }
+@media (max-width: 719px) {
+  .cp-wrap { margin-left: 0; }
+  .cp-lead { margin-bottom: 48px; }
+  .cp-info { grid-template-columns: 1fr; margin-top: 80px; }
+}
+.cp-wrap .g-recaptcha { min-height: 78px; margin: 8px 0 0; }
+/* immagini: niente selezione né trascinamento */
+img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
