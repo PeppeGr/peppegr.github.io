@@ -187,26 +187,20 @@ main { display: block; }
 .genre-nav .chip { text-decoration: none; display: inline-block; }
 .genre-nav .chip.is-active { background: var(--text); color: #fff; }
 .gallery-head { max-width: 1400px; }
-.stack { max-width: 1400px; margin: 0 auto; padding: 48px var(--gutter) 0; }
+.stack { max-width: 1920px; margin: 0 auto; padding: 48px var(--gutter) 0; }
 .stack-head { margin-bottom: 48px; }
 .stack-head h2 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 12px; }
 .stack-head p { color: var(--muted); font-size: 18px; margin: 0; }
-/* righe a altezza uniforme: ogni foto cresce in proporzione al proprio rapporto d'aspetto */
-.stack-photos { --gap: clamp(6px, 0.7vw, 12px); --rowh: 270px; }
-.stack-photos .row { display: flex; gap: var(--gap); margin-bottom: var(--gap); }
-.stack-photos .row:last-child { margin-bottom: 0; }
-.stack-photos figure { margin: 0; flex: var(--ar) 1 0; min-width: 0; }
+/* colonne come nell'esempio: ogni foto mantiene la proporzione originale, più grande della vecchia griglia */
+.stack-photos { columns: 3; column-gap: clamp(10px, 1.4vw, 24px); }
+.stack-photos figure { margin: 0 0 clamp(10px, 1.4vw, 24px); break-inside: avoid; }
 .stack-photos figure a { display: block; cursor: zoom-in; }
-.stack-photos img { display: block; width: 100%; height: auto; aspect-ratio: var(--ar); object-fit: cover; background: var(--grey); }
-.stack-photos .row.is-last { justify-content: flex-start; }
-.stack-photos .row.is-last figure { flex: none; width: calc(var(--rowh) * var(--ar)); }
-@media (max-width: 599px) {
-  .stack-photos .row { flex-direction: column; }
-  .stack-photos figure, .stack-photos .row.is-last figure { flex: none; width: 100%; }
-}
+.stack-photos img { display: block; width: 100%; height: auto; background: var(--grey); }
+@media (max-width: 1023px) { .stack-photos { columns: 2; } }
+@media (max-width: 599px) { .stack-photos { columns: 1; } .stack-photos figure { margin-bottom: 24px; } }
 .stack-foot {
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;
-  padding: 28px 0 72px; border-top: 1px solid var(--text);
+  padding: 28px 0 72px; border-top: 0;
 }
 .stack-pn { display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 24px 40px; }
 .stack-pn a[rel="next"] { margin-left: auto; text-align: right; }
@@ -259,12 +253,13 @@ main { display: block; }
   font-family: var(--serif); font-size: clamp(30px, 3.6vw, 84px); line-height: 1.05; white-space: nowrap;
   color: #fff; text-decoration: none; transition: opacity .3s ease;
 }
-.hero-names a:hover, .hero-names a:focus-visible { text-decoration: underline; text-underline-offset: 10px; text-decoration-thickness: 2px; }
+.hero-names a:focus-visible { outline: 1px solid #fff; outline-offset: 8px; }
 .hero-names:hover a:not(:hover) { opacity: .45; }
 /* con la foto a tutto schermo l'intestazione è bianca e sopra l'immagine */
 body.is-index .site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 2; color: #fff; }
 body.is-index .site-header a { color: #fff; }
 body.is-index .site-header .brand { color: #fff; }
+body.is-index .site-footer { display: none; }
 
 /* icone social */
 .header-social a, .footer-social a { display: inline-flex; align-items: center; justify-content: center; line-height: 0; padding: 6px; }
