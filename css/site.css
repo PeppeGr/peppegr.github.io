@@ -206,6 +206,7 @@ main { display: block; }
 .stack-pn a[rel="next"] { margin-left: auto; text-align: right; }
 .stack-pn a { font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); text-decoration: none; }
 .stack-pn a:hover { text-decoration: underline; text-underline-offset: 6px; }
+.stack-pn .arr { display: inline-block; text-decoration: none; }
 .btn-link {
   background: none; border: 0; padding: 0; font: inherit; font-size: 14px; cursor: pointer;
   text-decoration: underline; text-underline-offset: 4px; color: var(--text);
